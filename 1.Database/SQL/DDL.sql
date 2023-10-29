@@ -11,7 +11,7 @@ CREATE TABLE Departamento (
 
 --CREATE Ciudad TABLE
 CREATE TABLE Ciudad (
-	cod_ciudad SMALLINT PRIMARY KEY,
+	cod_ciudad SERIAL PRIMARY KEY,
 	nom_ciudad VARCHAR(60) NOT NULL,
 	cod_departamento VARCHAR(3) REFERENCES Departamento(cod_departamento)
 );
