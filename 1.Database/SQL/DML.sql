@@ -79,10 +79,10 @@ VALUES
 	
 -- Create a common table expression (CTE) to generate quarterly dates
 WITH QuarterlyDates AS (
-    SELECT generate_series('2005-01-01'::date, '2006-12-31'::date, '3 months') AS fecha_factura
+    SELECT generate_series('2005-01-01'::date, '2006-12-31'::date, '1 day') AS fecha_factura
 )
 
--- Insert data into the Factura table for all clients with 5 invoices each
+-- Insert data into the Factura table for all clients with 25 invoices each
 INSERT INTO Factura (nro_factura, cedula, fecha_factura, valor)
 SELECT
     row_number() OVER () AS nro_factura,
@@ -91,4 +91,4 @@ SELECT
     random() * 1000000 AS valor
 FROM Cliente c
 CROSS JOIN QuarterlyDates qd
-CROSS JOIN generate_series(1, 5) AS n;  -- Generate 5 invoices per quarter
+CROSS JOIN generate_series(1, 25) AS n;  -- Generate 25 invoices per quarter
