@@ -1,4 +1,3 @@
-// generate a readme.md for explain in general terms the steps to run a fastAPI python repo locally. 
 
 # Running a FastAPI Python Repo Locally
 
